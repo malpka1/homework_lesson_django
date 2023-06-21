@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'css/style.css' %}">
+    <script src="{% static 'js/todos.js' %}"></script>
 </head>
 <body>
-$END$
+<h1 class="header-style">Todos App</h1>
+<div>
+<table>
+    <tr class="tr-style">
+        <td class="td-style">ID</td>
+        <td class="td-style">TITLE</td>
+        <td class="td-style">STATUS</td>
+        <td class="td-style">READ</td>
+    </tr>
+    {% for todo in todos %}
+    <tr class="tr-style">
+        <td class="td-style">{{ todo.id }}</td>
+        <td class="td-style">{{ todo.title|upper}}</td>
+        <td class="td-style">{{todo.completed}}</td>
+        <td class="td-style"><button data-id="{{todo.id}}" class="read-button">Click me</button></td>
+    </tr>
+        {% endfor %}
+</table>
+</div>
+{% block content %}{% endblock %}
 </body>
 </html>
