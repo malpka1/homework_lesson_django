@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="{% url 'create-todo' %}" method="post">
+       <h1>Create todo</h1>
+        <label for="title">Title:</label>
+        <input type="text" id="title" title="title"><br><br>
+        <input type="submit" value="add">
+        <a href="{% url 'create-todo' %}">todo list</a>
+    </form>
+{% endblock %}

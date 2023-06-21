@@ -1,0 +1,11 @@
+{% for todo in todos %}
+<div>
+     <h3>{{todo.title|upper}}</h3>
+     <span>id - {{todo.id}}</span>
+     </br>
+     <span>completed - {{todo.completed}}</span>
+     </br>
+      <button data-id="{{todo.id}}" class="read-button">Read</button>
+ </div>
+{% endfor %}
+
