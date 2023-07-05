@@ -1,13 +1,13 @@
-var counter = 0;
 function handleClick() {
-    alert('you pressed the button');
-    counter += 1;
-    console.log('you pressed the button' + counter + 'time(s)');
-    document.getElementsByTagName('span')[0].textContent = counter;
-}
+    event.preventDefault();
+    url = event.target.getAttribute("href");
+    axios.post(url).then(response => {
+        console.log(response);
+        document.querySelector(`[data-todo-id="${response['data']['todo']['id']}"]`).textContent = response['data']['todo']['description'];
+    });
+
+};
 
 window.onload = function() {
-    console.log('page loaded');
-}
-document.getElementById('button').addEventListener('click me', handleClick);
-
+    document.querySelectorAll(".btn-like").forEach(btn => btn.addEventListener('click', handleLike))
+};
