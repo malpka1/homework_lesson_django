@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for post in posts %}
-        {% include "includes/post_card.html" %}
+    {% for todo in todos %}
+        {% include "includes/todos.html" %}
     {% endfor %}
 {% endblock %}
 
