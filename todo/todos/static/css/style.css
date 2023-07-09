@@ -1,17 +1,7 @@
-.header-style{
-    color:#d11c1c;
-    font-size: 4em;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
+.post-card {
+   margin-button: 30px;
 }
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.content {
+   margin: 40px;
 }
