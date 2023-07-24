@@ -23,9 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/todo/', include('todos.urls.api')),
     path('todo/', include('todos.urls.todos')),
-    path('api/v2/', include('todos.urls.api_v2')),
-    path('auth/', include('rest_authtoken.urls')),
-    path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
-    path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+
 ]
 
