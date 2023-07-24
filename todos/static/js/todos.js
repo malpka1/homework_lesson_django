@@ -11,3 +11,4 @@ function handleClick() {
 window.onload = function() {
     document.querySelectorAll(".btn-like").forEach(btn => btn.addEventListener('click', handleLike))
 };
+
