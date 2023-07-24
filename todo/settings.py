@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-s#yirjq!oq7)pl8^o7a=k0icb7@-(80gq1y-q4-#v04#8t78l=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-URL = 'https://jsonplaceholder.typicode.com/todos'
 
 ALLOWED_HOSTS = []
 
@@ -39,10 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
-    'todos',
-    'django_extensions'
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'todo.urls'
@@ -126,3 +122,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
