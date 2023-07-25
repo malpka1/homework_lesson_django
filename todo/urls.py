@@ -1,4 +1,22 @@
 
+"""
+URL configuration for todo project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+
+
 from django.contrib import admin
 from django.urls import path, include
 
@@ -8,6 +26,7 @@ urlpatterns = [
     path('todo', include('todos.urls')),
     path('create-todo', include('todos.urls')),
 ]
+
 
 import debug_toolbar
 from django.contrib import admin
@@ -21,8 +40,12 @@ urlpatterns = [
     path('todo/', include('todos.urls.todos')),
     path('api/v2/', include('todos.urls.api_v2')),
     path('auth/', include('rest_authtoken.urls')),
+    path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
+    path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+
    	path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
     path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+
 ]
 
 if settings.DEBUG:
@@ -31,4 +54,4 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls))
                   ] + urlpatterns
- 
+

@@ -1,5 +1,12 @@
 from django.shortcuts import render, redirect
 from todos.forms import TodoForm, TodoUpdateForm
+from django.views.decorators.cache import cache_page
+from todos.models import Todo
+
+
+@cache_page(60 * 15)
+def todos(request):
+    return render(request, 'todos.html', {'todos':Todo.objects.select_related('todo').all()})
 from todos.models import Todo
 
 

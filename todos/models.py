@@ -9,3 +9,10 @@ class Todo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     completed = models.BooleanField(default=False)
 
+
+
+class MyAuthToken(models.Model):
+    ...
+    class Meta:
+        app_label = 'rest_authtoken'
+
