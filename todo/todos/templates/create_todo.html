@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
         <form action="{% url 'create_todo' todo_id=todo.id %}" method="post">
         {% csrf_token %}
         {% for field in form %}

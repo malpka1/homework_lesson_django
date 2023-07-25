@@ -1,3 +1,4 @@
+
 """
 URL configuration for todo project.
 
@@ -14,6 +15,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/todos', include('api.urls')),
+    path('todo', include('todos.urls')),
+    path('create-todo', include('todos.urls')),
+]
+
+
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
@@ -26,8 +40,12 @@ urlpatterns = [
     path('todo/', include('todos.urls.todos')),
     path('api/v2/', include('todos.urls.api_v2')),
     path('auth/', include('rest_authtoken.urls')),
-   # path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
-    #path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+    path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
+    path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+
+   	path('api/token/', TokenObtainPairView(), name='token_obtain_pair'),
+    path('api/token/refresh', TokenRefreshView(), name='token_refresh'),
+
 ]
 
 if settings.DEBUG:
@@ -36,3 +54,4 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls))
                   ] + urlpatterns
+
